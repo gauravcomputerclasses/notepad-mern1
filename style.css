@@ -1,0 +1,178 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 0;
+}
+
+.notepad-container {
+    width: 100vw;
+    height: 100vh;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Toolbar Styling */
+.toolbar {
+    background: #f8f8f8;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 12px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.toolbar-btn {
+    padding: 8px 12px;
+    border: 1px solid #d0d0d0;
+    background: #ffffff;
+    color: #333333;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.toolbar-btn:hover {
+    background: #f0f0f0;
+    border-color: #a0a0a0;
+}
+
+.toolbar-btn:active {
+    background: #e8e8e8;
+}
+
+.toolbar-btn.primary {
+    background: #e8e8e8;
+    color: #000000;
+    border-color: #b0b0b0;
+}
+
+.toolbar-btn.primary:hover {
+    background: #d8d8d8;
+    border-color: #808080;
+}
+
+.toolbar-btn.danger {
+    background: #f0e8e8;
+    color: #333333;
+    border-color: #d0a0a0;
+}
+
+.toolbar-btn.danger:hover {
+    background: #e8d8d8;
+    border-color: #c08080;
+}
+
+.toolbar-select {
+    padding: 8px 10px;
+    border: 1px solid #d0d0d0;
+    border-radius: 4px;
+    background: #ffffff;
+    color: #333333;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.toolbar-select:hover {
+    border-color: #a0a0a0;
+}
+
+.toolbar-select:focus {
+    outline: none;
+    border-color: #808080;
+    box-shadow: 0 0 0 2px rgba(128, 128, 128, 0.2);
+}
+
+.toolbar-separator {
+    width: 1px;
+    height: 24px;
+    background: #d0d0d0;
+}
+
+.color-label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #505050;
+}
+
+.color-picker {
+    width: 40px;
+    height: 36px;
+    border: 1px solid #d0d0d0;
+    border-radius: 4px;
+    cursor: pointer;
+    background: #ffffff;
+}
+
+/* Editor Area Styling */
+.editor {
+    flex: 1;
+    padding: 15px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333333;
+    background: #ffffff;
+    overflow-y: auto;
+    resize: none;
+    outline: none;
+    border: none;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}
+
+.editor:empty:before {
+    content: attr(placeholder);
+    color: #b20d0d;
+}
+
+/* Status Bar Styling */
+.status-bar {
+    background: #f8f8f8;
+    border-top: 1px solid #e0e0e0;
+    padding: 10px 20px;
+    display: flex;
+    gap: 30px;
+    font-size: 14px;
+    color: #666666;
+    font-weight: 500;
+}
+
+.status-bar span {
+    display: flex;
+    gap: 8px;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .toolbar {
+        gap: 6px;
+        padding: 10px;
+    }
+
+    .toolbar-btn,
+    .toolbar-select {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+
+    .status-bar {
+        gap: 15px;
+        padding: 8px 15px;
+        font-size: 12px;
+    }
+}

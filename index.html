@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Notepad</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="notepad-container">
+        <!-- Toolbar -->
+        <div class="toolbar">
+            <button id="boldBtn" class="toolbar-btn" title="Bold (Ctrl+B)">
+                <strong>B</strong>
+            </button>
+            <button id="italicBtn" class="toolbar-btn" title="Italic (Ctrl+I)">
+                <i>I</i>
+            </button>
+            <button id="underlineBtn" class="toolbar-btn" title="Underline (Ctrl+U)">
+                <u>U</u>
+            </button>
+
+            <div class="toolbar-separator"></div>
+
+            <select id="fontFamily" class="toolbar-select">
+                <option value="Arial">Arial</option>
+                <option value="Georgia">Georgia</option>
+                <option value="Times New Roman">Times New Roman</option>
+                <option value="Courier New">Courier New</option>
+                <option value="Verdana">Verdana</option>
+            </select>
+
+            <select id="fontSize" class="toolbar-select">
+                <option value="12px">12px</option>
+                <option value="14px">14px</option>
+                <option value="16px" selected>16px</option>
+                <option value="18px">18px</option>
+                <option val ue="20px">20px</option>
+                <option value="24px">24px</option>
+            </select>
+
+            <div class="toolbar-separator"></div>
+
+            <label for="textColor" class="color-label">Color:</label>
+            <input type="color" id="textColor" class="color-picker" value="#333333">
+
+            <div class="toolbar-separator"></div>
+
+            <button id="clearBtn" class="toolbar-btn danger">Clear</button>
+            <button id="saveBtn" class="toolbar-btn primary">Save Note</button>
+        </div>
+
+        <!-- Text Editor Area -->
+        <div id="editor" class="editor" contenteditable="true" placeholder="Start typing your note here..."></div>
+
+        <!-- Status Bar -->
+        <div class="status-bar">
+            <span>Words: <span id="wordCount">0</span></span>
+            <span>Characters: <span id="charCount">0</span></span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
