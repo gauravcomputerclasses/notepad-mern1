@@ -51,7 +51,7 @@ body {
     border-color: #a0a0a0;
 }
 
-.toolbar-btn:active {
+.active {
     background: #e8e8e8;
 }
 
