@@ -1,7 +1,12 @@
 let editor = document.querySelector("#editor");
 let b = document.querySelector("#boldBtn");
+let u = document.querySelector("#underlineBtn");
+let i = document.querySelector("#italicBtn");
+let font = document.querySelector("#fontFamily");
+let charcter = document.querySelector("#charCount");
+let word = document.querySelector("#wordCount");
 
-b.addEventListener("click", () => {
+function applyStyles(tagName) {
     // get the selection text
     let selection = window.getSelection();
     // console.log(selection);
@@ -18,12 +23,26 @@ b.addEventListener("click", () => {
     // console.log(range.extractContents());
 
     // bold karne ke liye element create karna
-    const strong = document.createElement("strong");
+    const tag = document.createElement(`${tagName}`);
 
     // ek fragment ko strong tag ke andr append karna
     // advantage ye hai kee jo purana data rehta hai voh preserved rehta hai and hum sirf apne selection mai change karte hai
-    strong.appendChild(range.extractContents());
+    tag.appendChild(range.extractContents());
 
     // insert kardenge hum strong ko uski exactposition mei
-    range.insertNode(strong);
+    range.insertNode(tag);
+}
+
+b.addEventListener("click", () => applyStyles("strong"));
+u.addEventListener("click", () => applyStyles("u"));
+i.addEventListener("click", () => applyStyles("i"));
+
+font.addEventListener("change", (e) => {
+    editor.style.fontFamily = e.target.value;
+});
+
+editor.addEventListener("input", (e) => {
+    let text = e.target.textContent;
+    charcter.innerText = text.length;
+    word.innerText = text.split(" ").length;
 });
