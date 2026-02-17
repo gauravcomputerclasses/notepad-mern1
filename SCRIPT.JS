@@ -6,6 +6,9 @@ let font = document.querySelector("#fontFamily");
 let charcter = document.querySelector("#charCount");
 let word = document.querySelector("#wordCount");
 
+let fontSize = document.querySelector("#fontSize");
+let colorPicker = document.querySelector("#textColor");
+
 function applyStyles(tagName) {
     // get the selection text
     let selection = window.getSelection();
@@ -45,4 +48,12 @@ editor.addEventListener("input", (e) => {
     let text = e.target.textContent;
     charcter.innerText = text.length;
     word.innerText = text.split(" ").length;
+});
+
+
+fontSize.addEventListener("change", () => {
+editor.style.fontSize = fontSize.value;
+});
+colorPicker.addEventListener("input", () => {
+editor.style.color = colorPicker.value;
 });
