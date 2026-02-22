@@ -5,6 +5,8 @@ let i = document.querySelector("#italicBtn");
 let font = document.querySelector("#fontFamily");
 let charcter = document.querySelector("#charCount");
 let word = document.querySelector("#wordCount");
+let save = document.querySelector("#saveBtn");
+let notes = {};
 
 let fontSize = document.querySelector("#fontSize");
 let colorPicker = document.querySelector("#textColor");
@@ -36,6 +38,12 @@ function applyStyles(tagName) {
     range.insertNode(tag);
 }
 
+function retriveData() {
+    let retriveNotes = JSON.parse(localStorage.getItem("Notes Data"));
+    editor.innerHTML = retriveNotes.text;
+    editor.style = retriveNotes.style;
+}
+retriveData();
 b.addEventListener("click", () => applyStyles("strong"));
 u.addEventListener("click", () => applyStyles("u"));
 i.addEventListener("click", () => applyStyles("i"));
@@ -55,4 +63,17 @@ fontSize.addEventListener("change", () => {
 });
 colorPicker.addEventListener("input", () => {
     editor.style.color = colorPicker.value;
+});
+
+save.addEventListener("click", () => {
+    if (editor.innerText === "") {
+        console.warn("Abeee kuch likhlee");
+        alert("Empty cannot be saved");
+    } else {
+        let data = editor.innerHTML;
+        let style = editor.attributes.style.value;
+        notes.text = data;
+        notes.style = style;
+    }
+    localStorage.setItem("Notes Data", JSON.stringify(notes));
 });
